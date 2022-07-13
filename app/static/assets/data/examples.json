@@ -1,0 +1,38 @@
+[
+  {
+    "creators": "Ben McLean, Ryan Balzan, Katie Lavigne",
+    "dateAdded": "2022-06-13",
+    "dateUpdated": "2022-06-13",
+    "downloads": "13",
+    "files": "100",
+    "id": "147213",
+    "license": "CC Attribution",
+    "modalities": "fMRI",
+    "publication": "https://doi.org/10.1016/j.psychres.2018.04.043",
+    "purpose": "Cognitive Bias",
+    "size": "2",
+    "software": "NBS Presentation",
+    "source": "https://gitlab.pavlovia.org/katielavigne/beads-distractor",
+    "title": "Beads Distractor Task",
+    "version": "1.0",
+    "views": "89"
+  },
+  {
+    "creators": "Katie Lavigne, Steffen Moritz, Todd Woodward",
+    "dateAdded": "2022-06-13",
+    "dateUpdated": "2022-06-13",
+    "downloads": "17",
+    "files": "300",
+    "id": "146945",
+    "license": "CC Attribution",
+    "modalities": "fMRI, EEG",
+    "publication": "https://doi.org/10.1093/schbul/sbz032",
+    "purpose": "Cognitive Bias",
+    "size": "5",
+    "software": "NBS Presentation",
+    "source": "https://gitlab.pavlovia.org/katielavigne/bade-images-pre",
+    "title": "Evolving Images Task",
+    "version": "1.0",
+    "views": "100"
+  }
+]
