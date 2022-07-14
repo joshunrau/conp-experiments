@@ -1,3 +1,6 @@
-#!/bin/bash
+#!/usr/bin/env node
 
-flask run & npm start --prefix app/static
+const { spawn } = require("child_process");
+
+spawn("flask", ["run"], { stdio: "inherit" })
+spawn("npm", ["start", "--prefix", "app/static"], { stdio: "inherit" })

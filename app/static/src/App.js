@@ -14,15 +14,13 @@ const App = () => {
   useEffect(() => {
     fetchSimulatedExperiments((data) => setExperiments(data));
   }, []);
-
-  console.log(experiments);
   
   return (
     <div className="container-fluid py-1" id="experiments-portal">
       <Title>Experiments Search</Title>
       <SearchBar/>
-      {experiments === undefined ? null : <ExperimentTable experiments={experiments}/>}
       <ExperimentForm/>
+      {experiments === undefined ? null : <ExperimentTable experiments={experiments}/>}
     </div>
   );
 };
