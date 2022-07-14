@@ -9,9 +9,13 @@ from ..models import Experiment
 
 @experiments_bp.route('/experiments/api/search', methods=['GET'])
 def experiments_search():
+    """ returns a JSON array of experiments, where each experiment is an object with the keys 
+    map to values based on those in the model
+    """
     all_experiments = Experiment.query.all()
     print(all_experiments)
-    return json.dumps([{}])
+    data = [{"title": e.title, "creators": e.creators} for e in all_experiments]
+    return json.dumps(data)
 
 
 @experiments_bp.route('/experiments/api/submit', methods=['POST'])
