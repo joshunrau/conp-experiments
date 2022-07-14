@@ -5,14 +5,20 @@ import submitExperiment from "../api/submitExperiment";
 
 const ExperimentForm = () => {
 
-  const [title, setTitle] = useState("Example");
+  const [state, setState] = useState({
+    title: null,
+    creators: null
+  });
 
   const handleSubmit = () => {
-    console.log(title);
+    submitExperiment(state);
   };
 
-  const handleChange = (event) => {
-    setTitle(event.target.value);
+  const handleChange = (event, property) => {
+    setState(state => {
+      state[property] = event.target.value;
+      return {...state};
+    });
   };
 
   return (
@@ -32,12 +38,16 @@ const ExperimentForm = () => {
             <div className="modal-body">
               <div className="mb-3">
                 <label htmlFor="title-input" className="form-label">Title</label>
-                <input type="title" className="form-control" id="title-input" value={title} onChange={handleChange}/>
+                <input type="title" className="form-control" id="title-input" value={state.title} onChange={(event) => handleChange(event, "title")}/>
+              </div>
+              <div className="mb-3">
+                <label htmlFor="title-input" className="form-label">Creators</label>
+                <input type="title" className="form-control" id="title-input" value={state.creators} onChange={(event) => handleChange(event, "creators")}/>
               </div>
             </div>
             <div className="modal-footer">
               <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              <button type="button" className="btn btn-primary" data-bs-dismiss="modal" onClick={submitExperiment}>Submit</button>
+              <button type="button" className="btn btn-primary" data-bs-dismiss="modal" onClick={handleSubmit}>Submit</button>
             </div>
           </div>
         </div>
