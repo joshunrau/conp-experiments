@@ -1,6 +1,6 @@
 import os
 
-from app import create_app
+from app import create_app, db
 
 from dotenv import load_dotenv
 load_dotenv()

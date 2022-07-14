@@ -3,6 +3,8 @@ import PropTypes from "prop-types";
 
 const SearchBar = ({ filters }) => {
 
+  // idea - add search by variable (eg creators) 
+
   const [activeFilters, setActiveFilters] = useState(() => {
     const initialState = {}
     Object.entries(filters).forEach(([category, options]) => {
