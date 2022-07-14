@@ -1,22 +1,26 @@
 import json
 
-from flask import flash, render_template, redirect, url_for, request
+from flask import Response, request
 from . import experiments_bp
 from .simulated import get_simulated_experiments
 
-@experiments_bp.route('/experiments/api', methods=['GET'])
+from .. import db
+from ..models import Experiment
+
+@experiments_bp.route('/experiments/api/search', methods=['GET'])
 def experiments_search():
-    if request.method == 'GET':
-        return json.dumps(get_simulated_experiments(25))
-    elif request.method == 'POST':
-        print(request)
+    all_experiments = Experiment.query.all()
+    print(all_experiments)
+    return json.dumps([{}])
+
 
 @experiments_bp.route('/experiments/api/submit', methods=['POST'])
-def submit_experiment():
-    experiment = request.get_json()
-    
-    print("Recieved Request")
-    print(request.get_json())
-    print(type(request))
-    return 200
+def experiment_submission():
+    r = request.get_json()
+    experiment = Experiment(title=r["title"], creators=r["creators"])
+    db.session.add(experiment)
+    db.session.commit()
+    if experiment.id is None:
+        return Response(response="ID is None!", status=500)
+    return Response(response="Good", status=200)
 

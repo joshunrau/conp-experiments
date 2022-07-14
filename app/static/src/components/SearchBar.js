@@ -5,20 +5,29 @@ const SearchBar = ({ filters }) => {
 
   // idea - add search by variable (eg creators) 
 
+  const [searchText, setSearchText] = useState("");
+
+  const handleSearchTextChange = (event) => setSearchText(event.target.value);
+
   const [activeFilters, setActiveFilters] = useState(() => {
-    const initialState = {}
+    const initialState = {};
     Object.entries(filters).forEach(([category, options]) => {
-      initialState[category] = Object.fromEntries(options.map(option => [option, false]))
-    })
-    return initialState
-  })
+      initialState[category] = Object.fromEntries(options.map(option => [option, false]));
+    });
+    return initialState;
+  });
 
   const handleCheckboxChange = (category, option) => {
     setActiveFilters(state => {
-      state[category][option] = !state[category][option]
+      state[category][option] = !state[category][option];
       return {...state};
-    })
-  }
+    });
+  };
+
+  const handleSubmitSearch = () => {
+    console.log(activeFilters);
+    console.log(searchText);
+  };
 
   return (
     <div>
@@ -27,15 +36,15 @@ const SearchBar = ({ filters }) => {
           Show Filters
         </button>
         <form className="d-flex flex-fill" role="search">
-          <input className="form-control mx-2" type="search" placeholder="Search" aria-label="Search"/>
-          <button className="btn btn-outline-success" type="submit">Search</button>
+          <input className="form-control mx-2" type="search" value={searchText} placeholder="Search" aria-label="Search" onChange={handleSearchTextChange}/>
+          <button className="btn btn-outline-success" type="submit" onClick={handleSubmitSearch}>Search</button>
         </form>
       </div>
       <div className="collapse" id="filters-collapse">
         <div className="accordion py-2">
           {Object.entries(activeFilters).map(([category, options]) => {
-            const idPrefix =  `${category.toLowerCase()}`
-            const collapseId = `${idPrefix}-collapse`
+            const idPrefix =  `${category.toLowerCase()}`;
+            const collapseId = `${idPrefix}-collapse`;
             return (
               <div className="accordion-item" key={idPrefix}>
                 <h2 className="accordion-header">
@@ -60,7 +69,7 @@ const SearchBar = ({ filters }) => {
                             { filter }
                           </label>
                         </div>
-                      )
+                      );
                     })}
                   </div>
                 </div>
@@ -75,7 +84,7 @@ const SearchBar = ({ filters }) => {
 
 SearchBar.propTypes = {
   filters: PropTypes.object // tbd
-}
+};
 
 SearchBar.defaultProps = {
   filters: {
@@ -83,6 +92,6 @@ SearchBar.defaultProps = {
     software: ["linux", "windows"],
     purpose: ["cognitive", "sensory", "motor"]
   }
-}
+};
 
 export default SearchBar;

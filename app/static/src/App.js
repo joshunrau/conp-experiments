@@ -14,6 +14,8 @@ const App = () => {
   useEffect(() => {
     fetchSimulatedExperiments((data) => setExperiments(data));
   }, []);
+
+  console.log(experiments)
   
   return (
     <div className="container-fluid py-1" id="experiments-portal">

@@ -38,11 +38,11 @@ const ExperimentForm = () => {
             <div className="modal-body">
               <div className="mb-3">
                 <label htmlFor="title-input" className="form-label">Title</label>
-                <input type="title" className="form-control" id="title-input" value={state.title} onChange={(event) => handleChange(event, "title")}/>
+                <input type="title" className="form-control" id="title-input" value={state.title || ""} onChange={(event) => handleChange(event, "title")}/>
               </div>
               <div className="mb-3">
-                <label htmlFor="title-input" className="form-label">Creators</label>
-                <input type="title" className="form-control" id="title-input" value={state.creators} onChange={(event) => handleChange(event, "creators")}/>
+                <label htmlFor="creators-input" className="form-label">Creators</label>
+                <input type="creators" className="form-control" id="creators-input" value={state.creators || ""} onChange={(event) => handleChange(event, "creators")}/>
               </div>
             </div>
             <div className="modal-footer">
