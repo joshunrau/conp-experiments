@@ -2,14 +2,12 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require("path");
 const { merge } = require('webpack-merge');
 
-const staticDir = path.join(__dirname, "app", "static");
-
 const baseConfig = {
-  entry: path.resolve(staticDir, "index.js"),
+  entry: path.join(__dirname, "src", "index.js"),
   output: {
     clean: true,
     filename: '[name].bundle.js',
-    path: path.resolve(staticDir,  "dist")
+    path: path.join(__dirname,  "dist")
   },
   module: {
     rules: [

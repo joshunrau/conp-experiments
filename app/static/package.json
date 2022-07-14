@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack --mode production",
-    "start": "concurrently \"npm run start:flask\" \"npm run start:webpack-server\"",
-    "start:flask": "./venv/bin/flask run",
+    "start": "webpack serve --mode development --open",
+    "start:flask": "cd ../../../.. && ./venv/bin/flask run",
     "start:webpack-server": "webpack serve --mode development --open"
   },
   "author": "Joshua Unrau",
