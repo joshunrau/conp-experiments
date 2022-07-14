@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 
+import ExperimentForm from "./components/ExperimentForm";
 import ExperimentTable from "./components/ExperimentTable";
 import SearchBar from "./components/SearchBar";
 import Title from "./components/Title";
@@ -14,13 +15,14 @@ const App = () => {
     fetchSimulatedExperiments((data) => setExperiments(data));
   }, []);
 
-  console.log(experiments)
+  console.log(experiments);
   
   return (
     <div className="container-fluid py-1" id="experiments-portal">
       <Title>Experiments Search</Title>
       <SearchBar/>
       {experiments === undefined ? null : <ExperimentTable experiments={experiments}/>}
+      <ExperimentForm/>
     </div>
   );
 };
