@@ -4,27 +4,35 @@
 
 This repository houses the experiments portal we developed for the Canadian Open Neuroscience Platform (CONP) portal.
 
-## Setup
+## Development Setup
 
-Install NodeJS https://nodejs.org/en/
+The following setup was tested using [Node](https://nodejs.org/) 16.16 (LTS) and [Python](https://www.python.org/) 3.9.12.
 
-Create Virtual Environemnt
-    $ python -m venv venv
+### Flask Setup
 
-Source
-  source venv/bin/activate
-  pip install -r requirements.txt
+First, in the project root directory, create a new virtual environment: 
 
+    python -m venv venv
 
-npm install --prefix app/static
-export FLASK_APP=conp.py
+Then, activate this environment and install the required dependencies:
 
-./scripts/start
+    source venv/bin/activate
+    pip install -r requirements.txt
 
-## Create DB
+Create an empty database:
+
     flask shell
-    from app import db
-    db.create_all()
-    exit()
+    >>> from app import db
+    >>> db.create_all()
+    >>> exit()
 
+## React/Webpack Setup
+
+Install the required node modules:
+    
+    npm install --prefix app/static
+
+## Run Application
+
+    node run.js
 
