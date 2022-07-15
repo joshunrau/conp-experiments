@@ -19,6 +19,10 @@ Then, activate this environment and install the required dependencies:
     source venv/bin/activate
     pip install -r requirements.txt
 
+Set the FLASK_APP environment variable:
+
+    export FLASK_APP=conp.py
+
 Create an empty database:
 
     flask shell
@@ -26,13 +30,13 @@ Create an empty database:
     >>> db.create_all()
     >>> exit()
 
-## React/Webpack Setup
+### React/Webpack Setup
 
 Install the required node modules:
     
     npm install --prefix app/static
 
-## Run Application
+### Run Application
 
     node run.js
 

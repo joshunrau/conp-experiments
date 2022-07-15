@@ -1,8 +1,9 @@
 import json
 
 from flask import Response, request
+
 from . import experiments_bp
-from .simulated import get_simulated_experiments
+from .utils import ExperimentJSONEncoder
 
 from .. import db
 from ..models import Experiment
@@ -13,10 +14,9 @@ def experiments_search():
     map to values based on those in the model
     """
     all_experiments = Experiment.query.all()
-    print(all_experiments)
-    data = [{"title": e.title, "creators": e.creators} for e in all_experiments]
-    return json.dumps(data)
-
+    data = [e.to_dict() for e in all_experiments]
+    print("\n\n", data)
+    return json.dumps(data, cls=ExperimentJSONEncoder)
 
 @experiments_bp.route('/experiments/api/submit', methods=['POST'])
 def experiment_submission():

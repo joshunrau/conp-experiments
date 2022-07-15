@@ -5,17 +5,17 @@ import ExperimentTable from "./components/ExperimentTable";
 import SearchBar from "./components/SearchBar";
 import Title from "./components/Title";
 
-import fetchSimulatedExperiments from "./api/fetchSimulatedExperiments";
+import fetchExperiments from "./api/fetchExperiments";
 
 const App = () => {
   
   const [experiments, setExperiments] = useState();
   
   useEffect(() => {
-    fetchSimulatedExperiments((data) => setExperiments(data));
+    fetchExperiments((data) => setExperiments(data));
   }, []);
 
-  console.log(experiments)
+  console.log(experiments);
   
   return (
     <div className="container-fluid py-1" id="experiments-portal">
