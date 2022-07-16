@@ -4,10 +4,8 @@
   "description": "CONP Experiments Portal",
   "main": "index.js",
   "scripts": {
-    "build": "webpack --mode production",
-    "start": "webpack serve --mode development --open",
-    "start:flask": "cd ../../../.. && ./venv/bin/flask run",
-    "start:webpack-server": "webpack serve --mode development --open"
+    "build": "webpack --config webpack/webpack.prod.js",
+    "start": "webpack serve --config webpack/webpack.dev.js --open"
   },
   "author": "Joshua Unrau",
   "license": "MIT",

@@ -35,5 +35,5 @@
           "always"
       ]
   },
-  "ignorePatterns": ["dist/", "webpack.config.js"]
+  "ignorePatterns": ["dist/", "webpack/"]
 }
