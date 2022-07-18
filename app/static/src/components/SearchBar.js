@@ -28,16 +28,16 @@ const SearchBar = ({ filters }) => {
     console.log(activeFilters);
     console.log(searchText);
   };
-
+  
   return (
-    <div>
+    <div className="search">
       <div className="d-flex">
-        <button className="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#filters-collapse">
+        <button className="btn btn btn-outline-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#filters-collapse">
           Show Filters
         </button>
         <form className="d-flex flex-fill" role="search">
           <input className="form-control mx-2" type="search" value={searchText} placeholder="Search" aria-label="Search" onChange={handleSearchTextChange}/>
-          <button className="btn btn-outline-success" type="submit" onClick={handleSubmitSearch}>Search</button>
+          <button className="btn btn-outline-secondary" type="submit" onClick={handleSubmitSearch}>Search</button>
         </form>
       </div>
       <div className="collapse" id="filters-collapse">

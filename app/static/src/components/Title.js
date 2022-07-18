@@ -5,7 +5,7 @@ const Title = ({ children }) => {
   return (
     <div className="d-flex flex-column w-100">
       <h2 className="title text-center">
-        <span className="site-name">CONP Portal</span> | { children }
+        <span className="text-red">CONP Portal</span> | { children }
       </h2>
       <hr className="my-1"/>
     </div>
