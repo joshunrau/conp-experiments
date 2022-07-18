@@ -7,26 +7,34 @@ import Title from "./components/Title";
 
 import fetchExperiments from "./api/fetchExperiments";
 
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+
 const App = () => {
   
-  const [experiments, setExperiments] = useState();
+  const [experiments, setExperiments] = useState([]);
   
   useEffect(() => {
     fetchExperiments((data) => setExperiments(data));
   }, []);
 
   const handleSearchSubmit = (data) => console.log(data);
-  
+
   return (
-    <div className="container-fluid py-1" id="experiments-portal">
-      <Title>Experiments Search</Title>
-      <div className="d-flex">
-        <Search onSubmitSearch={handleSearchSubmit}/>
+    <Container fluid>
+      <Row>
+        <Title>Experiments Search</Title>
+      </Row>
+      <Row>
+        <Search onSubmitSearch={handleSearchSubmit} />
         <ExperimentForm/>
-      </div>
-      {experiments === undefined ? null : <ExperimentTable experiments={experiments}/>}
-    </div>
+      </Row>
+      <Row>
+        <ExperimentTable experiments={experiments} />
+      </Row>
+    </Container>
   );
+
 };
 
 export default App;

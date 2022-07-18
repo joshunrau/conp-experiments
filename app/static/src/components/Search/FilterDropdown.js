@@ -1,22 +1,22 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import Dropdown from "../Dropdown";
+import DropdownButton from "react-bootstrap/DropdownButton";
 import FilterCheckbox from "./FilterCheckbox";
 
-const FilterDropdown = ({ label, options, onChange }) => {
+const FilterDropdown = ({ title, options, onChange }) => {
   return (
-    <Dropdown label={label}>
+    <DropdownButton title={title}>
       {Object.entries(options).map(([key, value]) => {
         const handleCheckboxChange = () => onChange(key);
         return <FilterCheckbox key={key} label={key} checked={value} onChange={handleCheckboxChange}/>;
       })}
-    </Dropdown>
+    </DropdownButton>
   );
 };
 
 FilterDropdown.propTypes = {
-  label: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
   options: PropTypes.object.isRequired,
   onChange: PropTypes.func.isRequired
 };

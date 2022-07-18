@@ -7,7 +7,7 @@ const SearchFilters = ({ value, onChange }) => {
   return (
     <div className="d-flex">
       {Object.entries(value).map(([category, options]) => {
-        return <FilterDropdown key={category} label={category} options={options} onChange={(name) => onChange(category, name)}/>;
+        return <FilterDropdown key={category} title={category} options={options} onChange={(name) => onChange(category, name)}/>;
       })}
     </div>
   );

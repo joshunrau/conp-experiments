@@ -35,7 +35,7 @@ const Search = ({ filters, onSubmitSearch }) => {
   };
 
   return (
-    <div className="card flex-fill p-2">
+    <div className="d-flex flex-fill">
       <SearchFilters value={searchFilters} onChange={handleSearchFiltersChange} />
       <SearchBar value={searchText} onTextChange={handleSearchTextChange} onSubmit={handleOnSubmit}/>
     </div>
