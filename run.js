@@ -2,9 +2,6 @@ const path = require("path");
 const process = require("process");
 const { spawn } = require("child_process");
 
-
-
-
 spawn("flask", ["run"], {
   env: { ...process.env, FLASK_APP: "conp.py" },
   stdio: "inherit"

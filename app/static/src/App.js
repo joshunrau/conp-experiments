@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 
 import ExperimentForm from "./components/ExperimentForm";
 import ExperimentTable from "./components/ExperimentTable";
-import SearchBar from "./components/SearchBar";
+import Search from "./components/Search";
 import Title from "./components/Title";
 
 import fetchExperiments from "./api/fetchExperiments";
@@ -14,14 +14,12 @@ const App = () => {
   useEffect(() => {
     fetchExperiments((data) => setExperiments(data));
   }, []);
-
-  console.log(experiments);
   
   return (
     <div className="container-fluid py-1" id="experiments-portal">
       <Title>Experiments Search</Title>
       <div className="d-flex">
-        <SearchBar/>
+        <Search/>
         <ExperimentForm/>
       </div>
       {experiments === undefined ? null : <ExperimentTable experiments={experiments}/>}
