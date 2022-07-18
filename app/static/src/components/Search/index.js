@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import SearchBar from "./SearchBar";
 import SearchFilters from "./SearchFilters";
 
-const Search = ({ filters }) => {
+const Search = ({ filters, onSubmitSearch }) => {
 
   const [searchFilters, setSearchFilters] = useState(() => {
     const initalState = {};
@@ -24,18 +24,28 @@ const Search = ({ filters }) => {
     });
   };
 
+  const handleSearchTextChange = (event) => setSearchText(event.target.value);
+
+  const handleOnSubmit = (event) => {
+    event.preventDefault();
+    onSubmitSearch({
+      filters: searchFilters,
+      text: searchText
+    });
+  };
 
   return (
     <div className="card flex-fill p-2">
       <SearchFilters value={searchFilters} onChange={handleSearchFiltersChange} />
-      <SearchBar value={searchText} onChange={(event) => setSearchText(event.target.value)} onSubmit={() => null}/>
+      <SearchBar value={searchText} onTextChange={handleSearchTextChange} onSubmit={handleOnSubmit}/>
     </div>
   );
 
 };
 
 Search.propTypes = {
-  filters: PropTypes.object
+  filters: PropTypes.object,
+  onSubmitSearch: PropTypes.func
 };
 
 Search.defaultProps = {

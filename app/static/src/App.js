@@ -14,12 +14,14 @@ const App = () => {
   useEffect(() => {
     fetchExperiments((data) => setExperiments(data));
   }, []);
+
+  const handleSearchSubmit = (data) => console.log(data);
   
   return (
     <div className="container-fluid py-1" id="experiments-portal">
       <Title>Experiments Search</Title>
       <div className="d-flex">
-        <Search/>
+        <Search onSubmitSearch={handleSearchSubmit}/>
         <ExperimentForm/>
       </div>
       {experiments === undefined ? null : <ExperimentTable experiments={experiments}/>}
