@@ -1,21 +1,5 @@
 @charset "UTF-8";
 
-// 1. Configuration and helpers
-@import
-  'abstracts/variables',
-  'abstracts/functions',
-  'abstracts/mixins';
+@import "bootstrap/scss/bootstrap";
 
-// 3. Base stuff
-@import
-  'base/base',
-  'base/fonts',
-  'base/typography',
-  'base/helpers';
-
-// 5. Components
-@import
-  'components/ExperimentCard',
-  'components/ExperimentTable',
-  'components/Title',
-  'components/SearchBar';
+@import "abstracts", "base", "components";

@@ -32,7 +32,7 @@ const SearchBar = ({ filters }) => {
   return (
     <div>
       <div className="d-flex">
-        <button className="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#filters-collapse" aria-expanded="false" aria-controls="collapseExample">
+        <button className="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#filters-collapse">
           Show Filters
         </button>
         <form className="d-flex flex-fill" role="search">
