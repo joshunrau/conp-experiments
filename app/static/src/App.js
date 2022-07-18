@@ -20,8 +20,10 @@ const App = () => {
   return (
     <div className="container-fluid py-1" id="experiments-portal">
       <Title>Experiments Search</Title>
-      <SearchBar/>
-      <ExperimentForm/>
+      <div className="d-flex">
+        <SearchBar/>
+        <ExperimentForm/>
+      </div>
       {experiments === undefined ? null : <ExperimentTable experiments={experiments}/>}
     </div>
   );

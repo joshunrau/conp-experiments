@@ -55,5 +55,4 @@ $utilities-bg-colors: map-loop($utilities-colors, rgba-css-var, "$key", "bg");
 @import "bootstrap/scss/utilities";
 @import "bootstrap/scss/utilities/api";
 
-
 // @import "abstracts", "base", "components";

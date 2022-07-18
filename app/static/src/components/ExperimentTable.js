@@ -73,12 +73,13 @@ const ExperimentTable = ({ experiments }) => {
   );
 
   return (
-    <div className="my-1 p-2 rounded shadow-sm">
+    <div className="card p-2">
       { header }
       { body }
       { footer }
     </div>
   );
+
 };
 
 ExperimentTable.propTypes = {

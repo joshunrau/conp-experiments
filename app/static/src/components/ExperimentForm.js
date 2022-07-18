@@ -22,9 +22,9 @@ const ExperimentForm = () => {
   };
 
   return (
-    <div className="experiment-form">
+    <div className="p-2">
       <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-        Submit Experiment
+        <span className="text-uppercase">Submit Experiment</span>
       </button>
       <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div className="modal-dialog">

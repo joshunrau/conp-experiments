@@ -30,18 +30,18 @@ const SearchBar = ({ filters }) => {
   };
   
   return (
-    <div className="search">
+    <div className="card flex-fill p-2">
       <div className="d-flex">
         <button className="btn btn btn-outline-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#filters-collapse">
           Show Filters
         </button>
         <form className="d-flex flex-fill" role="search">
-          <input className="form-control mx-2" type="search" value={searchText} placeholder="Search" aria-label="Search" onChange={handleSearchTextChange}/>
+          <input className="form-control mx-1" type="search" value={searchText} placeholder="Search" aria-label="Search" onChange={handleSearchTextChange}/>
           <button className="btn btn-outline-secondary" type="submit" onClick={handleSubmitSearch}>Search</button>
         </form>
       </div>
       <div className="collapse" id="filters-collapse">
-        <div className="accordion py-2">
+        <div className="accordion pt-2">
           {Object.entries(activeFilters).map(([category, options]) => {
             const idPrefix =  `${category.toLowerCase()}`;
             const collapseId = `${idPrefix}-collapse`;
