@@ -4,11 +4,11 @@ import PropTypes from "prop-types";
 import Dropdown from "../Dropdown";
 import FilterCheckbox from "./FilterCheckbox";
 
-const FilterDropdown = ({ label, options, onFilterChange }) => {
+const FilterDropdown = ({ label, options, onChange }) => {
   return (
     <Dropdown label={label}>
       {Object.entries(options).map(([key, value]) => {
-        const handleCheckboxChange = () => onFilterChange(key);
+        const handleCheckboxChange = () => onChange(key);
         return <FilterCheckbox key={key} label={key} checked={value} onChange={handleCheckboxChange}/>;
       })}
     </Dropdown>
@@ -18,7 +18,7 @@ const FilterDropdown = ({ label, options, onFilterChange }) => {
 FilterDropdown.propTypes = {
   label: PropTypes.string.isRequired,
   options: PropTypes.object.isRequired,
-  onFilterChange: PropTypes.func.isRequired
+  onChange: PropTypes.func.isRequired
 };
 
 export default FilterDropdown;
